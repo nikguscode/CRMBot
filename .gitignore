@@ -17,6 +17,7 @@ target/
 application.properties
 qodana.yaml
 qodana.sarif.json
+.github/workflows
 
 ### IntelliJ IDEA ###
 .idea
