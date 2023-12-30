@@ -15,8 +15,8 @@ target/
 
 ### Private Data ###
 application.properties
-
-.qodana
+qodana.yaml
+qodana.sarif.json
 
 ### IntelliJ IDEA ###
 .idea
