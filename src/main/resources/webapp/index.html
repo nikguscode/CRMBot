@@ -6,12 +6,12 @@
     <title>Authentication</title>
     <link rel="stylesheet" href="style.css"/>
     <script>
-        let tg = window.Telegram.WebApp;
-        let order = document.getElementById("submit");
 
-        order.addEventListener("click", () => {
+        const tg = window.Telegram.WebApp;
+        
+        const onClose = () => {
             tg.close();
-        });
+        }
 
     </script>
 </head>
@@ -21,7 +21,7 @@
         <input type="text" id="user_id_input"></p>
         <p><label id="user_pass_text">Пароль:</label>
         <input type="password" id="user_pass_input"></p>
-        <p><button id="submit">Подтвердить</button></p>
+        <p><button id="submit" onClick={onClose}>Подтвердить</button></p>
     </form>
 </body>
 </html>
