@@ -5,3 +5,27 @@
 body {
     background-color: var(--tg-theme-bg-color);
 }
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, button {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 15 px;
+}
+
+button {
+    background-color: var(--tg-theme-primary-color);
+    color:black;
+    cursor: pointer;
+}
+
