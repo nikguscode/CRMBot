@@ -7,7 +7,7 @@ body {
 }
 
 form {
-    max-width: 600px;
+    max-width: 300px;
     margin: 0 auto;
 }
 
@@ -17,7 +17,7 @@ label {
 }
 
 input, button {
-    width: 80%;
+    width: 100%;
     padding: 8px;
     box-sizing: border-box;
     margin: 0 auto;
