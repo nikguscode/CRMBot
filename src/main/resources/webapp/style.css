@@ -28,6 +28,7 @@ input {
     background-color:var(--tg-theme-bg-color);
     border-width: 2px;
     border-color: white;
+    color: var(--tg-theme-text-color);
 }
 
 button {
