@@ -5,6 +5,14 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <title>Authentication</title>
     <link rel="stylesheet" href="style.css"/>
+    <script>
+        let tg = window.Telegram.WebApp;
+        let order = document.getElementById("submit");
+
+        order.addEventListener("click", () => {
+            close();
+        });
+    </script>
 </head>
 <body>
     <form id="auth" action="auth.java">
