@@ -1,21 +1,6 @@
-import './style.css'
-import {useEffect} from "react";
-const tg = window.Telegram.WebApp;
+let tg = window.Telegram.WebApp;
+let submit_btn = document.getElementById("submit");
 
-function App() {
-
-    useEffect(() => {
-        tg.ready();
-    }, [])
-
-    const onClose = () => {
-        tg.close;
-    }
-
-    return (
-        <div className="App">
-            <button onClick={onClose}>Close</button>
-        </div>
-    )
-
-}
+submit_btn.addEventListener("click", () => {
+    tg.close();
+});
