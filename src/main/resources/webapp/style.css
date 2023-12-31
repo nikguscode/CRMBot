@@ -17,14 +17,21 @@ label {
 }
 
 input, button {
-    width: 100%;
+    width: 80%;
     padding: 8px;
     box-sizing: border-box;
+    margin: 0 auto;
     margin-bottom: 15 px;
 }
 
+input {
+    background-color:var(--tg-theme-bg-color);
+    border-width: 2px;
+    border-color: white;
+}
+
 button {
-    background-color: var(--tg-theme-primary-color);
+    background-color: white;
     color:black;
     cursor: pointer;
 }
