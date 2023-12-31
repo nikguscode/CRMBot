@@ -1,6 +1,16 @@
 let tg = window.Telegram.WebApp;
-let submit_btn = document.getElementById("submit");
+let submitBtn = document.getElementById("submit");
 
-submit_btn.addEventListener("click", () => {
+
+submitBtn.addEventListener("click", () => {
+    let userId = document.getElementById("user_id_input").value;
+    let userPassword = document.getElementById("user_pass_input").value;
+
+    let data = {
+        userId: userId,
+        userPassword: userPassword
+    }
+
+    tg.sendData(JSON.stringify(data));
     tg.close();
 });
