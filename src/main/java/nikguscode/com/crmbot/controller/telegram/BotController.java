@@ -14,7 +14,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 public class BotController extends TelegramLongPollingBot {
 
     private final BotConfig botConfig;
-    private MessageManager messageManager;
+    private final MessageManager messageManager;
 
     @Autowired
     public BotController(BotConfig botConfig,

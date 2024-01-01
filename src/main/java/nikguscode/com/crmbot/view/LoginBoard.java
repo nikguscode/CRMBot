@@ -10,29 +10,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class TestingBoar {
-    private ReplyKeyboardMarkup testBoard;
+public class LoginBoard {
+    private ReplyKeyboardMarkup loginBoard;
 
     public void createBoard() {
-        testBoard = new ReplyKeyboardMarkup();
+        loginBoard = new ReplyKeyboardMarkup();
         List<KeyboardRow> rowList = new ArrayList<>();
-
-
         KeyboardRow row = new KeyboardRow();
-        KeyboardButton asd = new KeyboardButton();
+        KeyboardButton login = new KeyboardButton();
 
-        WebAppInfo webAppInfo = new WebAppInfo("https://friendly-fudge-f92397.netlify.app/");
+        login.setText("Login");
+        login.setWebApp(new WebAppInfo("https://friendly-fudge-f92397.netlify.app/"));
 
-        asd.setText("Login");
-        asd.setWebApp(webAppInfo);
-
-        row.add(asd);
+        row.add(login);
         rowList.add(row);
-        testBoard.setKeyboard(rowList);
+        loginBoard.setKeyboard(rowList);
     }
 
     public ReplyKeyboardMarkup getBoard() {
         createBoard();
-        return testBoard;
+        return loginBoard;
     }
 }

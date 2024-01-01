@@ -16,6 +16,11 @@ label {
     margin-bottom: 5px;
 }
 
+#auth_text {
+    color: var(--tg-theme-text-color);
+    text-align: center;
+}
+
 input, button {
     width: 100%;
     padding: 8px;
@@ -33,6 +38,7 @@ input {
 
 button {
     background-color: white;
+    border-radius: 10px;
     color:black;
     cursor: pointer;
 }
