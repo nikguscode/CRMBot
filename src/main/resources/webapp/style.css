@@ -27,6 +27,7 @@ input, button {
     box-sizing: border-box;
     margin: 0 auto;
     margin-bottom: 5px;
+    border-radius: 8px;
 }
 
 input {
