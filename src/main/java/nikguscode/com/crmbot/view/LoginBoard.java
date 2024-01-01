@@ -1,9 +1,8 @@
 package nikguscode.com.crmbot.view;
 
 import org.springframework.stereotype.Service;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.api.objects.webapp.WebAppInfo;
 
@@ -20,12 +19,14 @@ public class TestingBoar {
 
 
         KeyboardRow row = new KeyboardRow();
+        KeyboardButton asd = new KeyboardButton();
 
-        row.add("How are you");
+        WebAppInfo webAppInfo = new WebAppInfo("https://friendly-fudge-f92397.netlify.app/");
 
-        WebAppInfo webAppInfo = new WebAppInfo();
-        webAppInfo.setUrl("https://t.me/crmasd_bot/auth");
+        asd.setText("Login");
+        asd.setWebApp(webAppInfo);
 
+        row.add(asd);
         rowList.add(row);
         testBoard.setKeyboard(rowList);
     }
