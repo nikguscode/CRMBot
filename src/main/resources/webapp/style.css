@@ -14,6 +14,11 @@ body {
 label {
     display: block;
     margin-bottom: 5px;
+    font-size: large;
+}
+
+label, input, button {
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #auth_text {
