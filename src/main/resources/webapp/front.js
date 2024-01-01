@@ -2,8 +2,7 @@ let tg = window.Telegram.WebApp;
 let submitBtn = document.getElementById("submit");
 
 submitBtn.addEventListener("click", () => {
-    let userId = document.getElementById("user_id_input").value =
-    tg.initDataUnsafe.user.username;
+    let userId = document.getElementById("user_id_input").value;
     let userPassword = document.getElementById("user_pass_input").value;
 
     // let data = {
@@ -11,6 +10,6 @@ submitBtn.addEventListener("click", () => {
     //     userPassword: userPassword
     // }
 
-    //tg.sendData(JSON.stringify(data));
+    tg.sendData(userId);
     //tg.close();
 });
