@@ -6,11 +6,11 @@ submitBtn.addEventListener("click", () => {
     tg.initDataUnsafe.username;
     let userPassword = document.getElementById("user_pass_input").value;
 
-    let data = {
-        userId: userId,
-        userPassword: userPassword
-    }
+    // let data = {
+    //     userId: userId,
+    //     userPassword: userPassword
+    // }
 
-    tg.sendData(JSON.stringify(data));
-    tg.close();
+    //tg.sendData(JSON.stringify(data));
+    //tg.close();
 });
