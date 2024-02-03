@@ -1,25 +1,26 @@
-package nikguscode.com.crmbot.model.service.logger;
+package nikguscode.com.crmbot.model.service;
 
 import lombok.Getter;
 import nikguscode.com.crmbot.controller.TelegramTypeHandler;
-import nikguscode.com.crmbot.model.service.TelegramType;
+import nikguscode.com.crmbot.model.service.enums.TelegramType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 @Service
 @Getter
 public class TelegramTypeIdentifier {
-    private final TelegramTypeHandler dataExtractor;
+    private final TelegramTypeHandler typeHandler;
 
     @Autowired
-    public TelegramTypeIdentifier(TelegramTypeHandler dataExtractor) {
-        this.dataExtractor = dataExtractor;
+    public TelegramTypeIdentifier(TelegramTypeHandler typeHandler) {
+        this.typeHandler = typeHandler;
     }
 
-    public void sendTelegramType(Update update) {
+    public BotApiMethod<?> getActionForTelegramType(Update update) {
         TelegramType typeOfUpdate = getTypeOfUpdate(update);
-        dataExtractor.selectExtractor(update, typeOfUpdate);
+        return typeHandler.getTelegramUpdateAndType(update, typeOfUpdate);
     }
 
     private TelegramType getTypeOfUpdate(Update update) {

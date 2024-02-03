@@ -1,4 +1,4 @@
-package nikguscode.com.crmbot.model.service;
+package nikguscode.com.crmbot.model.service.enums;
 
 public enum TelegramType {
     TEXT, COMMAND, PHOTO, VIDEO, VOICE, ANIMATION, DOCUMENT, STICKER, AUDIO, CALLBACK,
