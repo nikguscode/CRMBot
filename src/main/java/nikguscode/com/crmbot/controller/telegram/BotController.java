@@ -1,47 +1,46 @@
 package nikguscode.com.crmbot.controller.telegram;
 
-import nikguscode.com.crmbot.model.service.logger.TelegramTypeIdentifier;
+import lombok.extern.slf4j.Slf4j;
+import nikguscode.com.crmbot.model.service.TelegramTypeIdentifier;
+import nikguscode.com.crmbot.view.boards.ManagerBoard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 @Controller
+@Slf4j
 public class BotController extends TelegramLongPollingBot {
-    private final BotConfig botConfig;
+    private final BotConfiguration botConfiguration;
     private final TelegramTypeIdentifier telegramTypeIdentifier;
+    private final ManagerBoard managerBoard;
 
     @Autowired
-    public BotController(BotConfig botConfig,
-                         TelegramTypeIdentifier telegramTypeIdentifier) {
-        this.botConfig = botConfig;
+    public BotController(BotConfiguration botConfiguration,
+                         TelegramTypeIdentifier telegramTypeIdentifier,
+                         ManagerBoard managerBoard) {
+        this.botConfiguration = botConfiguration;
         this.telegramTypeIdentifier = telegramTypeIdentifier;
+        this.managerBoard = managerBoard;
     }
 
     @Override
     public String getBotUsername() {
-        return botConfig.getBotName();
+        return botConfiguration.getBotName();
     }
 
     @Override
     public String getBotToken() {
-        return botConfig.getBotToken();
+        return botConfiguration.getBotToken();
     }
 
     @Override
     public void onUpdateReceived(Update update) {
-        if (update.hasMessage() || update.hasCallbackQuery()) {
-            telegramTypeIdentifier.sendTelegramType(update);
-            SendMessage sendMessage = new SendMessage();
-            sendMessage.setChatId(update.getMessage().getChatId());
-            sendMessage.setText("ПРОВЕРКА");
-            try {
-                execute(sendMessage);
-            } catch (TelegramApiException e) {
-                throw new RuntimeException(e);
-            }
+        try {
+            execute(telegramTypeIdentifier.getActionForTelegramType(update));
+        } catch (TelegramApiException e) {
+            throw new RuntimeException(e);
         }
     }
 }

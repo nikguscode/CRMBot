@@ -1,7 +1,7 @@
 package nikguscode.com.crmbot.model.service.logger;
 
 import lombok.extern.slf4j.Slf4j;
-import nikguscode.com.crmbot.model.service.logger.telegramDataExtractors.BotStatusExtractor;
+import nikguscode.com.crmbot.model.service.extractors.BotStatusExtractor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
