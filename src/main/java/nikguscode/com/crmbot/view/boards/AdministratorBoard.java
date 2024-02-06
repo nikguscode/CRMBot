@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class AdministratorBoard {
+public class AdministratorBoard extends Board {
     @Autowired
     private AdministratorBoardConfiguration configuration;
-    private InlineKeyboardMarkup boardMarkup;
 
-    private void initialize() {
+    @Override
+    protected void initialize(InlineKeyboardMarkup boardMarkup) {
         List<List<InlineKeyboardButton>> board = new ArrayList<>();
         List<InlineKeyboardButton> setButtons = setButtons();
 
@@ -32,7 +32,8 @@ public class AdministratorBoard {
         boardMarkup.setKeyboard(board);
     }
 
-    private ArrayList<InlineKeyboardButton> setButtons() {
+    @Override
+    protected ArrayList<InlineKeyboardButton> setButtons() {
         return new ArrayList<>(List.of(
                 InlineKeyboardButton.builder()
                         .text(configuration.getBotStatistics())
@@ -53,11 +54,5 @@ public class AdministratorBoard {
                         .text(configuration.getPersonalSettings())
                         .callbackData(configuration.getPersonalSettingsCallback()).build()
         ));
-    }
-
-    public InlineKeyboardMarkup create() {
-        boardMarkup = new InlineKeyboardMarkup();
-        initialize();
-        return boardMarkup;
     }
 }
